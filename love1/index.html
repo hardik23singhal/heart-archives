@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#241032">
+<title>For Vanshii 💜</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: linear-gradient(145deg,#180b29,#35134f,#170b26);
+  overflow-x: hidden;
+}
+
+button { cursor: pointer; font: inherit; }
+
+/* PASSWORD SCREEN */
+
+#passwordScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at top,#63378b,#241032 65%,#10091e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.password-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 28px 20px;
+  text-align: center;
+  background: #ffffff12;
+  border: 1px solid #ffffff30;
+  border-radius: 24px;
+  backdrop-filter: blur(15px);
+}
+
+.password-card h1 {
+  font-family: Georgia,serif;
+  font-size: 38px;
+  margin: 15px 0;
+  color: #f4d9ff;
+}
+
+.password-card p {
+  line-height: 1.7;
+  color: #ead7f5;
+  font-size: 14px;
+}
+
+.password-card h3 {
+  margin-top: 22px;
+  line-height: 1.6;
+}
+
+.flower-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.flower-option {
+  background: #ffffff13;
+  color: white;
+  border: 1px solid #ffffff30;
+  border-radius: 17px;
+  padding: 17px 8px;
+  transition: .2s;
+}
+
+.flower-option:hover {
+  background: #ffffff28;
+  transform: translateY(-3px);
+}
+
+.flower-option:active { transform: scale(.96); }
+
+.flower {
+  display: block;
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.flower-option strong { font-size: 13px; }
+
+#passwordMessage {
+  min-height: 48px;
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffd5ec;
+}
+
+/* MAIN WEBSITE */
+
+#mainWebsite { display: none; }
+
+.container {
+  width: min(650px,100%);
+  margin: auto;
+  padding: 22px 18px 40px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #e6caff;
+  letter-spacing: 1px;
+  gap: 8px;
+}
+
+.pill {
+  border: 1px solid #b98be0;
+  border-radius: 30px;
+  padding: 7px 12px;
+}
+
+.hero {
+  text-align: center;
+  padding: 85px 5px 55px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #e4baff;
+  text-transform: uppercase;
+}
+
+.heart {
+  font-size: 58px;
+  animation: heartbeat 1.5s infinite;
+  margin: 20px;
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.18); }
+}
+
+h1 {
+  font-family: Georgia,serif;
+  font-size: clamp(52px,12vw,78px);
+  font-weight: normal;
+  line-height: 1.05;
+  background: linear-gradient(120deg,white,#e6baff,#f8d7ef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
+}
+
+.sub {
+  color: #e8d5f4;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.mainbtn {
+  background: linear-gradient(110deg,#dca5ff,#b76aff);
+  color: #28113e;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 23px;
+  font-weight: 800;
+  margin-top: 20px;
+  box-shadow: 0 8px 30px #bc74e75c;
+  transition: .2s;
+}
+
+.mainbtn:hover { transform: translateY(-3px); }
+
+.section {
+  margin: 28px 0;
+  padding: 23px 19px;
+  background: #ffffff0c;
+  border: 1px solid #ffffff20;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+h2 {
+  font-family: Georgia,serif;
+  font-size: 27px;
+  font-weight: normal;
+  margin: 12px 0;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #e9d9f4;
+  margin: 10px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.tile {
+  background: #ffffff0d;
+  border: 1px solid #ffffff1b;
+  border-radius: 15px;
+  padding: 16px 12px;
+  min-height: 105px;
+}
+
+.tile span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.tile strong { font-size: 13px; }
+
+.tile small {
+  display: block;
+  color: #d8c0e9;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.question {
+  text-align: center;
+  padding: 25px 12px;
+}
+
+.choices {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.choice {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  background: #d5a0f4;
+  color: #351449;
+  font-weight: 750;
+  transition: .2s;
+}
+
+.choice:hover { transform: scale(1.06); }
+
+.choice.alt {
+  background: #ffffff18;
+  color: white;
+  border: 1px solid #ffffff30;
+}
+
+.result {
+  color: #f7d7ff;
+  margin-top: 18px;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.letter {
+  display: none;
+  background: #fff4fc;
+  color: #48245b;
+  border-radius: 13px;
+  padding: 22px;
+  margin-top: 18px;
+  line-height: 1.9;
+  font-family: Georgia,serif;
+  font-size: 15px;
+  white-space: pre-line;
+}
+
+.letter.show {
+  display: block;
+  animation: fadeIn .5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.counter {
+  text-align: center;
+  font-family: Georgia,serif;
+  font-size: 38px;
+  color: #f4c6ff;
+  margin: 18px;
+}
+
+.meter {
+  height: 8px;
+  background: #ffffff20;
+  border-radius: 9px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.meter div {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg,#dca5ff,#ffb8e7);
+  transition: width .5s;
+}
+
+.wide { width: 100%; }
+
+.randomtext {
+  text-align: center;
+  min-height: 65px;
+  font-family: Georgia,serif;
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.footer {
+  text-align: center;
+  color: #cdb0dc;
+  font-size: 12px;
+  padding: 25px 10px;
+}
+
+.footer strong {
+  display: block;
+  margin-top: 10px;
+  color: #f1d3ff;
+  font-size: 15px;
+}
+
+.tiny {
+  font-size: 11px;
+  color: #cdb5dd;
+  margin-top: 14px;
+}
+
+.floating {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width:380px) {
+  .container { padding: 15px 12px; }
+  .section { padding: 18px 14px; }
+  .choice { padding: 11px 14px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+
+<div id="passwordScreen">
+
+  <div class="password-card">
+
+    <div style="font-size:55px">💌</div>
+
+    <div class="eyebrow">A little memory test</div>
+
+    <h1>Hey Vanshii! 💜</h1>
+
+    <p>
+      Before entering your little love universe,
+      answer one question from our beautiful memories.
+    </p>
+
+    <h3>
+      Which color flower did I give you
+      on our first official meet? 🌸
+    </h3>
+
+    <div class="flower-options">
+
+      <button class="flower-option"
+        onclick="checkPassword('Red')">
+        <span class="flower">🌹</span>
+        <strong>Red Rose</strong>
+      </button>
+
+      <button class="flower-option"
+        onclick="checkPassword('Yellow')">
+        <span class="flower">🌼</span>
+        <strong>Yellow Flower</strong>
+      </button>
+
+      <button class="flower-option"
+        onclick="checkPassword('Pink')">
+        <span class="flower">🌷</span>
+        <strong>Pink Flower</strong>
+      </button>
+
+      <button class="flower-option"
+        onclick="checkPassword('White')">
+        <span class="flower">🤍</span>
+        <strong>White Flower</strong>
+      </button>
+
+    </div>
+
+    <div id="passwordMessage">
+      🌷 Hint: Think about our first meeting!
+    </div>
+
+    <div style="font-size:12px;color:#d7b8eb">
+      Made with endless love — Your Fiance 💍
+    </div>
+
+  </div>
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainWebsite">
+
+<div class="container">
+
+  <div class="top">
+    <span>♡ THE VANSHII UNIVERSE</span>
+    <span class="pill">Made with love 💜</span>
+  </div>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="eyebrow">A website dedicated to one human</div>
+
+    <div class="heart">💜</div>
+
+    <h1>Hey,<br>Vanshii.</h1>
+
+    <div class="sub">
+      You just entered a place where you're<br>
+      the main character. Obviously. ✨
+    </div>
+
+    <button class="mainbtn" onclick="enterWebsite()">
+      Enter our little universe ↓
+    </button>
+
+    <p class="tiny">Warning: Excessive cuteness ahead.</p>
+
+  </section>
+
+  <!-- INTRODUCTION -->
+
+  <section class="section" id="welcome">
+
+    <div class="eyebrow">01 — A little introduction</div>
+
+    <h2>Why you're special 🌷</h2>
+
+    <p>
+      Out of billions of people, somehow my favourite
+      notification is still yours. Coincidence? Absolutely
+      not. Destiny? Probably. Your fiance being obsessed?
+      Definitely.
+    </p>
+
+    <div class="grid">
+
+      <div class="tile">
+        <span>🥹</span>
+        <strong>Your smile</strong>
+        <small>My favourite view. No competition.</small>
+      </div>
+
+      <div class="tile">
+        <span>😂</span>
+        <strong>Your madness</strong>
+        <small>My daily dose of entertainment.</small>
+      </div>
+
+      <div class="tile">
+        <span>🫶</span>
+        <strong>Your heart</strong>
+        <small>One of my favourite places.</small>
+      </div>
+
+      <div class="tile">
+        <span>💅</span>
+        <strong>Your attitude</strong>
+        <small>Scary sometimes. Still adorable.</small>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+
+  <section class="section">
+
+    <div class="eyebrow">02 — Important scientific research</div>
+
+    <h2>Vanshii compatibility test 🧪</h2>
+
+    <p>
+      How much do you love your fiance?
+      Please answer carefully.
+    </p>
+
+    <div class="question">
+
+      <div style="font-size:45px">🥰</div>
+
+      <strong>Who's the luckiest person alive?</strong>
+
+      <div class="choices">
+
+        <button class="choice" onclick="answerQuiz(1)">
+          Me, Vanshii 💜
+        </button>
+
+        <button class="choice alt" onclick="answerQuiz(2)">
+          Your fiance 😎
+        </button>
+
+      </div>
+
+      <div class="result" id="answer"></div>
+
+    </div>
+  </section>
+
+  <!-- LOVE LETTER -->
+
+  <section class="section">
+
+    <div class="eyebrow">03 — A special delivery</div>
+
+    <h2>A letter for you 💌</h2>
+
+    <p>
+      Something I wanted you to read.
+      No teasing until you've finished.
+    </p>
+
+    <button class="mainbtn wide"
+      onclick="toggleLetter()" id="letterBtn">
+      Open your surprise letter ✉️
+    </button>
+
+    <div class="letter" id="letter">My dearest Vanshii,
+
+I don't know how to explain it, but you make ordinary days feel special.
+
+You are my favourite thought, my favourite smile, and the person I want beside me through all the beautiful and chaotic chapters of life.
+
+I promise to annoy you, make you laugh at the worst possible moments, steal your attention, and love you even on the days when you're being an absolute drama queen.
+
+Especially then. 😂
+
+I don't need a perfect love story. I just want ours — with silly jokes, random adventures, little arguments, endless hugs, and a lifetime of choosing each other.
+
+If I could choose again, I'd still choose you. Every single time.
+
+Forever yours,
+
+Your Fiance 💜</div>
+
+  </section>
+
+  <!-- LOVE METER -->
+
+  <section class="section">
+
+    <div class="eyebrow">04 — A very serious calculator</div>
+
+    <h2>Our love level 📈</h2>
+
+    <div class="counter" id="loveval">100%</div>
+
+    <div class="meter">
+      <div id="lovebar"></div>
+    </div>
+
+    <p style="text-align:center">
+      Warning: This calculator has a broken maximum limit.
+    </p>
+
+    <button class="mainbtn wide" onclick="boostLove()">
+      Increase our love 💗
+    </button>
+
+    <p class="tiny" id="boostmsg">
+      Tap to conduct highly accurate research.
+    </p>
+
+  </section>
+
+  <!-- RANDOM LOVE GENERATOR -->
+
+  <section class="section">
+
+    <div class="eyebrow">05 — Press for happiness</div>
+
+    <h2>Random love generator 🎁</h2>
+
+    <p>Need a smile? I have a few things to tell you.</p>
+
+    <div style="text-align:center;font-size:44px;margin:15px">
+      🎀
+    </div>
+
+    <div class="randomtext" id="randomtext">
+      A surprise is waiting for you...
+    </div>
+
+    <button class="mainbtn wide" onclick="randomLove()">
+      Tell me something cute ✨
+    </button>
+
+  </section>
+
+  <!-- PROPOSAL -->
+
+  <section class="section question">
+
+    <div class="eyebrow">06 — One last question</div>
+
+    <div style="font-size:48px;margin:15px">💍</div>
+
+    <h2>Will you keep being<br>my favourite person?</h2>
+
+    <p>
+      Lifetime subscription. No cancellation.
+      Unlimited hugs included.
+    </p>
+
+    <div class="choices">
+
+      <button class="choice" onclick="sayYes()">
+        YES, OBVIOUSLY! 💜
+      </button>
+
+      <button class="choice alt" onclick="sayYes()">
+        YES BUT I'M SHY 🥺
+      </button>
+
+    </div>
+
+    <div class="result" id="proposal"></div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div style="font-size:30px">💜</div>
+
+    <div style="font-family:Georgia;font-size:20px;color:#f1d3ff;margin:8px">
+      Made for Vanshii.
+    </div>
+
+    A little website. A whole lot of love.
+
+    <strong>— Your Fiance ♡</strong>
+
+    <p class="tiny">
+      P.S. You're not allowed to forget how loved you are.
+    </p>
+
+    <button class="mainbtn" onclick="sendHearts()">
+      Send some hearts 💕
+    </button>
+
+  </footer>
+
+</div>
+</div>
+
+<script>
+
+/* FLOWER PASSWORD SYSTEM */
+
+function checkPassword(answer) {
+
+  const message = document.getElementById("passwordMessage");
+
+  if (answer === "Yellow") {
+
+    message.innerHTML =
+      "CORRECT!! 🥹💛 You remember our special day!";
+
+    message.style.color = "#fff09b";
+
+    setTimeout(() => {
+
+      document.getElementById("passwordScreen").style.display = "none";
+
+      document.getElementById("mainWebsite").style.display = "block";
+
+      createHearts(35);
+
+    }, 1200);
+
+  } else {
+
+    message.innerHTML =
+      "Oops! Wrong flower, sweetheart 😂💗 Try again!";
+
+    message.style.color = "#ffb5d8";
+
+  }
+}
+
+/* ENTER WEBSITE */
+
+function enterWebsite() {
+
+  document.getElementById("welcome")
+    .scrollIntoView({ behavior: "smooth" });
+
+  createHearts(18);
+}
+
+/* FLOATING HEARTS */
+
+function createHearts(count = 12) {
+
+  const emojis = ["💜","💕","💗","✨","🫶"];
+
+  for (let i = 0; i < count; i++) {
+
+    const heart = document.createElement("span");
+
+    heart.className = "floating";
+
+    heart.innerHTML =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 95 + "vw";
+    heart.style.bottom = "-30px";
+    heart.style.fontSize = (18 + Math.random() * 22) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4100);
+  }
+}
+
+/* QUIZ */
+
+function answerQuiz(option) {
+
+  const answer = document.getElementById("answer");
+
+  if (option === 1) {
+
+    answer.innerHTML =
+      "Correct! But your fiance is also the luckiest person because they have YOU. 🥹💜";
+
+  } else {
+
+    answer.innerHTML =
+      "Trick question! BOTH. Now give your fiance a hug. Immediately. 😂💕";
+
+  }
+
+  createHearts(8);
+}
+
+/* LOVE LETTER */
+
+function toggleLetter() {
+
+  const letter = document.getElementById("letter");
+
+  const button = document.getElementById("letterBtn");
+
+  letter.classList.toggle("show");
+
+  if (letter.classList.contains("show")) {
+
+    button.innerHTML = "Close my letter 💌";
+
+    createHearts(22);
+
+  } else {
+
+    button.innerHTML = "Open your surprise letter ✉️";
+
+  }
+}
+
+/* LOVE METER */
+
+let love = 100;
+
+function boostLove() {
+
+  love = Math.min(
+    999999,
+    love + Math.floor(Math.random() * 999 + 100)
+  );
+
+  document.getElementById("loveval").innerHTML =
+    love.toLocaleString("en-IN") + "%";
+
+  document.getElementById("lovebar").style.width =
+    Math.min(100, love / 999999 * 100) + "%";
+
+  document.getElementById("boostmsg").innerHTML =
+    love >= 999999
+      ? "SYSTEM OVERLOAD. INFINITE LOVE DETECTED. ♾️"
+      : "Error: Love levels exceeding system capacity. 💗";
+
+  createHearts(5);
+}
+
+/* RANDOM LOVE GENERATOR */
+
+const messages = [
+
+  "You're the plot twist I never knew I needed. 💜",
+
+  "Reminder: Someone is ridiculously lucky to have you.",
+
+  "Your smile should honestly be a national treasure. 🥹",
+
+  "If being adorable was a crime, you'd need a very good lawyer.",
+
+  "I love you more than my phone loves 100% battery. 🔋",
+
+  "You're my favourite notification. Even over food delivery.",
+
+  "One lifetime with you? Still sounds too short. 💍",
+
+  "Your fiance has excellent taste. Source: trust me."
+
+];
+
+function randomLove() {
+
+  const random =
+    Math.floor(Math.random() * messages.length);
+
+  document.getElementById("randomtext").innerHTML =
+    messages[random];
+
+  createHearts(4);
+}
+
+/* PROPOSAL */
+
+function sayYes() {
+
+  document.getElementById("proposal").innerHTML =
+    "YAAAAAY! 🎉 Officially the happiest fiance on planet Earth. Now come here for a hug! 💜";
+
+  createHearts(35);
+}
+
+/* SEND HEARTS */
+
+function sendHearts() {
+
+  createHearts(40);
+
+  document.getElementById("randomtext").innerHTML =
+    "A whole sky full of hearts, just for you, Vanshii. 💜";
+
+}
+
+</script>
+
+</body>
+</html>
+	

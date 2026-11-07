@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali, Vanshii ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(180deg, #18052d, #4b1059, #170523);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+button {
+  padding: 14px 25px;
+  margin: 12px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ffd36b, #ff9e42);
+  color: #45102d;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #ffc65c;
+}
+
+section {
+  padding: 65px 18px;
+  max-width: 850px;
+  margin: auto;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  color: #ffdb83;
+  text-shadow: 0 0 15px orange, 0 0 35px #ff9900;
+}
+
+h2 {
+  color: #ffdb83;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 18px;
+}
+
+.hero p {
+  margin-top: 20px;
+  color: #ffe9bd;
+}
+
+.card {
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,220,150,.3);
+  border-radius: 25px;
+  padding: 28px 20px;
+  margin: 25px auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(255,170,50,.1);
+}
+
+.lights {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  border-top: 3px solid #b77b36;
+  margin-bottom: 35px;
+}
+
+.bulb {
+  width: 15px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffda65;
+  box-shadow: 0 0 18px #ffb52e;
+  animation: blink 1s infinite alternate;
+}
+
+.bulb:nth-child(2n) {
+  background: #ff75c8;
+  box-shadow: 0 0 18px #ff75c8;
+  animation-delay: .5s;
+}
+
+.bulb:nth-child(3n) {
+  background: #83f5ff;
+  box-shadow: 0 0 18px #83f5ff;
+  animation-delay: .8s;
+}
+
+@keyframes blink {
+  from { opacity: .4; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+.diya-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin: 35px 0;
+}
+
+.diya {
+  font-size: 55px;
+  filter: drop-shadow(0 0 15px orange);
+  animation: glow 1.3s infinite alternate;
+}
+
+@keyframes glow {
+  from { transform: scale(1); }
+  to {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 30px gold);
+  }
+}
+
+.sweets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 550px;
+  margin: 25px auto;
+}
+
+.sweet {
+  background: rgba(255,210,110,.12);
+  border: 1px solid rgba(255,215,130,.3);
+  border-radius: 20px;
+  padding: 20px 10px;
+  font-size: 17px;
+}
+
+.sweet span {
+  display: block;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.letter {
+  background: rgba(255,230,180,.12);
+  border: 1px solid rgba(255,215,140,.4);
+  border-radius: 22px;
+  padding: 28px 20px;
+  margin: 25px auto;
+  color: #fff1d2;
+  line-height: 2;
+}
+
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99;
+  animation: sparkleUp 2.5s ease-out forwards;
+}
+
+@keyframes sparkleUp {
+  from {
+    transform: translateY(0) scale(.5);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-200px) scale(1.8) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.music-control {
+  position: fixed;
+  bottom: 18px;
+  right: 12px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(55, 15, 50, 0.92);
+  border: 1px solid #ffd36b;
+  border-radius: 30px;
+  padding: 5px 10px;
+  box-shadow: 0 0 18px rgba(255, 190, 80, .4);
+}
+
+.music-control span {
+  color: #ffe6aa;
+  font-size: 11px;
+}
+
+.music-control button {
+  margin: 0;
+  padding: 9px 13px;
+  min-width: 38px;
+}
+
+/* FIREWORKS BACKGROUND */
+
+#fireworksCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 500;
+  display: none;
+}
+
+.fireworks-active #fireworksCanvas {
+  display: block;
+}
+
+.fireworks-message {
+  position: fixed;
+  z-index: 501;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 650px;
+  color: #ffe8a6;
+  font-size: clamp(22px, 5vw, 38px);
+  font-weight: bold;
+  text-shadow: 0 0 20px orange, 0 0 35px #ffbf42;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.fireworks-active .fireworks-message {
+  opacity: 1;
+}
+
+footer {
+  padding: 35px 15px;
+  color: #ffdb83;
+}
+
+@media(max-width: 450px) {
+  .sweets { gap: 10px; }
+  .sweet { font-size: 15px; }
+  .music-control { bottom: 12px; right: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworksCanvas"></canvas>
+
+<div class="fireworks-message" id="fireworksMessage">
+  Our next Diwali will be together, my love! ❤️
+</div>
+
+<!-- WELCOME -->
+
+<section class="hero">
+  <div class="diya-row">
+    <div class="diya">🪔</div>
+    <div class="diya">✨</div>
+    <div class="diya">🪔</div>
+  </div>
+
+  <h1>Happy Diwali,<br>Vanshii! ❤️</h1>
+
+  <p>
+    To the girl who makes my world brighter
+    than a thousand glowing diyas.
+    <br>
+    This little celebration is just for you. 💛
+  </p>
+
+  <button onclick="document.getElementById('celebration').scrollIntoView({behavior:'smooth'})">
+    Open Your Diwali Surprise ✨
+  </button>
+</section>
+
+<!-- DIWALI CELEBRATION -->
+
+<section id="celebration">
+
+  <div class="lights">
+    <div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div>
+  </div>
+
+  <h2>My Little Diwali Wish 💛</h2>
+
+  <div class="card">
+    <p>
+      May your life always shine brighter than
+      a thousand diyas.
+      May your smile never fade, your dreams come true,
+      and happiness find you wherever you go.
+      <br><br>
+      And may I always be there to celebrate
+      every little and big moment with you. ❤️
+    </p>
+  </div>
+
+  <div class="diya-row">
+    <div class="diya">🪔</div>
+    <div class="diya">🪔</div>
+    <div class="diya">🪔</div>
+  </div>
+
+  <h2>A Sweet Diwali For My Sweet Girl 🍬</h2>
+
+  <div class="sweets">
+    <div class="sweet"><span>🍡</span>Gulab Jamun</div>
+    <div class="sweet"><span>🌀</span>Jalebi</div>
+    <div class="sweet"><span>🍬</span>Ladoo</div>
+    <div class="sweet"><span>🍫</span>Chocolate</div>
+  </div>
+
+</section>
+
+<!-- LOVE LETTER -->
+
+<section>
+  <h2>A Special Letter For You 💌</h2>
+
+  <div class="letter">
+    <p>
+      My beautiful Vanshii,<br><br>
+
+      This Diwali, I don't wish for expensive gifts
+      or anything extraordinary.
+
+      I just wish for your happiness, your health,
+      your beautiful smile and a lifetime of
+      celebrations together.
+
+      <br><br>
+
+      Every diya reminds me of the light you bring
+      into my life.
+
+      Every sparkle reminds me of the magic you
+      create in my world.
+
+      And every sweet reminds me that life became
+      sweeter after you came into it.
+
+      <br><br>
+
+      If I could gift you something this Diwali,
+      it would be a promise:
+
+      I'll keep loving you, supporting you,
+      teasing you and standing beside you.
+
+      <br><br>
+
+      Let's make countless Diwalis beautiful together.
+
+      <br><br>
+
+      With all my love,<br>
+      <strong>Your Fiancé ❤️</strong>
+    </p>
+
+    <button onclick="openLetter()">
+      One More Surprise 💖
+    </button>
+
+    <p id="surpriseMessage"></p>
+  </div>
+</section>
+
+<!-- NEXT DIWALI PROMISE -->
+
+<section>
+  <div class="card">
+    <h2>A Promise For Our Next Diwali 💍</h2>
+
+    <p>
+      This Diwali, we may be celebrating from afar,
+      but just imagine something, my love...
+      <br><br>
+
+      <strong style="color:#ffdb83">
+        From next Diwali onwards, we'll celebrate together,
+        side by side, lighting diyas, sharing sweets,
+        taking silly pictures and making memories
+        that last forever. ❤️
+      </strong>
+      <br><br>
+
+      No more wishing we were together.
+      We'll make it our beautiful tradition. 🥹
+    </p>
+  </div>
+</section>
+
+<!-- FIREWORKS SURPRISE -->
+
+<section>
+  <h2>One Last Surprise For You! 🎁</h2>
+
+  <div class="card">
+    <p>
+      I saved the brightest surprise for last.
+      <br>
+      Ready to light up our little Diwali sky? ✨
+    </p>
+
+    <button onclick="startFireworks()">
+      🎆 One Last Surprise 🎆
+    </button>
+
+    <p id="fireworksStatus" style="margin-top:15px;color:#ffdb83">
+      Made especially for you, Vanshii! ❤️
+    </p>
+  </div>
+</section>
+
+<!-- MUSIC CONTROL -->
+
+<div class="music-control">
+  <span id="musicStatus">🎵 Diwali music</span>
+  <button onclick="toggleMusic()" id="musicButton">⏸</button>
+</div>
+
+<footer>
+  Made with endless love, just for Vanshii 💜
+  <br><br>
+  Forever yours — Your Fiancé ❤️
+</footer>
+
+<script>
+
+
+// =================================
+// SOFT INDIAN FLUTE DIWALI MUSIC 🪈
+// =================================
+
+let audioContext = null;
+let musicPlaying = false;
+let musicTimer = null;
+let noteIndex = 0;
+
+// Gentle Indian flute-inspired melody
+// Notes are played with a soft breathy tone
+const fluteMelody = [
+  392.00, 440.00, 523.25, 587.33,
+  523.25, 440.00, 392.00, 349.23,
+  392.00, 440.00, 523.25, 659.25,
+  587.33, 523.25, 440.00, 392.00,
+  349.23, 392.00, 440.00, 523.25,
+  440.00, 392.00, 349.23, 293.66
+];
+
+function playFluteNote(frequency) {
+  if (!audioContext || !musicPlaying) return;
+
+  const start = audioContext.currentTime;
+
+  const oscillator = audioContext.createOscillator();
+  const breath = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  const breathGain = audioContext.createGain();
+
+  // Soft flute-like tone
+  oscillator.type = "sine";
+  oscillator.frequency.setValueAtTime(frequency, start);
+
+  // Gentle vibrato
+  breath.type = "sine";
+  breath.frequency.value = 5;
+
+  breathGain.gain.value = 2.5;
+
+  breath.connect(breathGain);
+  breathGain.connect(oscillator.frequency);
+
+  // Soft breathy volume envelope
+  gain.gain.setValueAtTime(0.0001, start);
+  gain.gain.exponentialRampToValueAtTime(
+    0.055, start + 0.18
+  );
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001, start + 2.1
+  );
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscillator.start(start);
+  breath.start(start);
+
+  oscillator.stop(start + 2.2);
+  breath.stop(start + 2.2);
+}
+
+async function startMusic() {
+  if (musicPlaying) return;
+
+  try {
+    if (!audioContext) {
+      audioContext = new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
+    }
+
+    await audioContext.resume();
+
+    musicPlaying = true;
+
+    document.getElementById("musicButton").innerText = "⏸";
+    document.getElementById("musicStatus").innerText =
+      "🪈 Soft Flute Music";
+
+    playFluteNote(fluteMelody[noteIndex]);
+
+    musicTimer = setInterval(() => {
+      if (!musicPlaying) return;
+
+      noteIndex = (noteIndex + 1) % fluteMelody.length;
+
+      playFluteNote(fluteMelody[noteIndex]);
+
+    }, 850);
+
+  } catch (error) {
+    document.getElementById("musicStatus").innerText =
+      "Tap to start flute music";
+  }
+}
+
+function stopMusic() {
+  musicPlaying = false;
+  clearInterval(musicTimer);
+
+  if (audioContext) {
+    audioContext.suspend();
+  }
+
+  document.getElementById("musicButton").innerText = "▶";
+  document.getElementById("musicStatus").innerText =
+    "Flute music paused";
+}
+
+function toggleMusic() {
+  if (musicPlaying) {
+    stopMusic();
+  } else {
+    startMusic();
+  }
+}
+
+// Attempt automatic music playback
+window.addEventListener("load", () => {
+  startMusic();
+});
+
+// Mobile browser autoplay fallback
+document.addEventListener("pointerdown", () => {
+  if (!musicPlaying) startMusic();
+}, { once: true });
+
+
+// =================================
+// ROMANTIC LETTER
+// =================================
+
+function openLetter() {
+  document.getElementById("surpriseMessage").innerHTML =
+    "<br><br>Surprise, my love! 🥹💛 " +
+    "You are the brightest light in my life. " +
+    "I wish I could celebrate every festival " +
+    "holding your hand. Happy Diwali, my Vanshii! 🪔❤️";
+
+  celebrate();
+}
+
+
+// =================================
+// SPARKLE CELEBRATION
+// =================================
+
+function celebrate() {
+  const emojis = ["✨", "💛", "🌟", "🎆", "💖", "🪔", "🎇"];
+
+  for (let i = 0; i < 60; i++) {
+    const sparkle = document.createElement("div");
+
+    sparkle.className = "sparkle";
+    sparkle.innerText =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = (40 + Math.random() * 50) + "vh";
+    sparkle.style.fontSize = (18 + Math.random() * 25) + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 2600);
+  }
+}
+
+
+// =================================
+// FIREWORKS CANVAS ANIMATION
+// =================================
+
+const canvas = document.getElementById("fireworksCanvas");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+let rockets = [];
+let fireworksRunning = false;
+let animationFrame;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+function launchRocket() {
+  rockets.push({
+    x: Math.random() * window.innerWidth,
+    y: window.innerHeight + 10,
+    targetY: 70 + Math.random() * window.innerHeight * 0.48,
+    speed: 5 + Math.random() * 3,
+    hue: Math.random() * 360
+  });
+}
+
+function burst(x, y, hue) {
+  const count = 75 + Math.floor(Math.random() * 35);
+
+  for (let i = 0; i < count; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 1 + Math.random() * 5;
+
+    particles.push({
+      x,
+      y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      life: 70 + Math.random() * 35,
+      maxLife: 105,
+      size: 1.5 + Math.random() * 2.5,
+      hue: hue + Math.random() * 35
+    });
+  }
+}
+
+function animateFireworks() {
+  if (!fireworksRunning) return;
+
+  ctx.fillStyle = "rgba(12, 3, 25, 0.17)";
+  ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+  if (Math.random() < 0.055) {
+    launchRocket();
+  }
+
+  rockets.forEach((rocket, index) => {
+    rocket.y -= rocket.speed;
+
+    ctx.beginPath();
+    ctx.arc(rocket.x, rocket.y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = `hsl(${rocket.hue},100%,70%)`;
+    ctx.fill();
+
+    if (rocket.y <= rocket.targetY) {
+      burst(rocket.x, rocket.y, rocket.hue);
+      rockets.splice(index, 1);
+    }
+  });
+
+  particles.forEach((particle, index) => {
+    particle.x += particle.vx;
+    particle.y += particle.vy;
+
+    particle.vy += 0.035;
+    particle.vx *= 0.99;
+    particle.life--;
+
+    const alpha = Math.max(0, particle.life / particle.maxLife);
+
+    ctx.beginPath();
+    ctx.arc(
+      particle.x,
+      particle.y,
+      particle.size,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fillStyle =
+      `hsla(${particle.hue},100%,65%,${alpha})`;
+
+    ctx.shadowBlur = 12;
+    ctx.shadowColor =
+      `hsl(${particle.hue},100%,65%)`;
+
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    if (particle.life <= 0) {
+      particles.splice(index, 1);
+    }
+  });
+
+  animationFrame = requestAnimationFrame(animateFireworks);
+}
+
+function startFireworks() {
+  document.body.classList.add("fireworks-active");
+
+  document.getElementById("fireworksStatus").innerText =
+    "Look at the sky, my love! These fireworks are all for you! 🎆❤️";
+
+  document.getElementById("fireworksMessage").innerText =
+    "Next Diwali, I'll be right beside you! ❤️";
+
+  if (fireworksRunning) {
+    for (let i = 0; i < 5; i++) launchRocket();
+    return;
+  }
+
+  fireworksRunning = true;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < 8; i++) {
+    launchRocket();
+  }
+
+  animateFireworks();
+
+  // Keep the celebration running for 15 seconds
+  setTimeout(() => {
+    fireworksRunning = false;
+    cancelAnimationFrame(animationFrame);
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    document.body.classList.remove("fireworks-active");
+
+    rockets = [];
+    particles = [];
+
+    document.getElementById("fireworksStatus").innerText =
+      "Hope that made you smile, my Vanshii! 🥹❤️";
+
+  }, 15000);
+}
+
+</script>
+
+</body>
+</html>
